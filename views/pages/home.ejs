@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Home</title>
+  </head>
+
+  <body>
+    <nav class="menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/addReport">Add report</a></li>
+        <li><a href="/graph">Your Graphs</a></li>
+        <li style="float: right">
+          <a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="user-details-box">
+      <h2>Hello there!</h2>
+      <% if (user) { %>
+      <img src="/<%= user.userImageURL %>" alt="User Photo" width="150" />
+      <!-- Added this line -->
+      <ul>
+        <li><strong>First Name</strong> <%= user.firstName %></li>
+        <li><strong>Last Name</strong> <%= user.lastName %></li>
+        <li><strong>User ID</strong> <%= user.userDocumentID %></li>
+        <li><strong>Entry Sugar Level</strong> <%= user.entrySugarLevel %></li>
+      </ul>
+      <% } else { %>
+      <li>User not found</li>
+      <% } %>
+    </div>
+  </body>
+</html>
