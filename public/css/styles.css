@@ -122,3 +122,28 @@ img {
     100% { transform: rotate(360deg); }
   }
   
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.food-history h2 {
+    text-align: center;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Food History</title>
+</head>
+
+<body>
+    <nav class="menu">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/addReport">Add report</a></li>
+            <li><a href="/foodHistory">Food History</a></li>
+            <li><a href="/graph">Your Graphs</a></li>
+            <li style="float: right;"><a href="/logout"><i class="fas fa-sign-out-alt"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="food-history">
+        <h2>Food History</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Food</th>
+                <th>Sugar Level (2 hours later)</th>
+            </tr>
+            <% for (let i = 0; i < reports.length; i++) { %>
+                <tr>
+                    <td><%= reports[i].reportDate.toISOString().split("T")[0] %></td>
+                    <td><%= reports[i].foodAte %></td>
+                    <td><%= reports[i].sugarLevelTwoHoursLater %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+
+</html>

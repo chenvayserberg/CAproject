@@ -102,6 +102,17 @@ router.post("/addReport", async (req, res) => {
   }
 });
 
+router.get("/foodHistory", ensureAuthenticated, async (req, res) => {
+  try {
+    const userID = req.currentUser.userDocumentID;
+    const reports = await Report.find({ userID }).sort({ reportDate: 'desc' });
+    res.render("foodhistory", { reports });
+  } catch (e) {
+    res.status(400).send({ error: e });
+  }
+});
+
+
 router.get("/graph", ensureAuthenticated, (req, res) => {
   const emptyData = {
     labels: [],
@@ -146,5 +157,6 @@ router.post("/graph", ensureAuthenticated, async (req, res) => {
     res.status(400).send({ error: e });
   }
 });
+
 
 module.exports = router;

@@ -20,6 +20,8 @@ app.set("view engine", "ejs");
 app.use(require('./middleware/auth').userMiddleware);
 app.use(routes);
 
+
+
 app.listen(3000, () => {
   console.log("app is running in port 3000");
 });
